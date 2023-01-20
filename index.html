@@ -5,10 +5,50 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Budgety</title>
-    <link src="styles/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-    
+    <main>
+        <section id="summary-display">
+            <div id="summary-display-title">
+                Budget for <span id="month">Month</span>
+            </div>
+            <div id="summary-display-money">
+                + 1999.00
+            </div> 
+            <div id="summary-display-chart">
+                <div id="summary-display-chart-income" class="summary-display-chart income">
+                    <div id="summary-display-chart-income-title" >Income</div>
+                    <div id="summary-display-chart-income-money">999</div>
+                </div>
+                <div id="summary-display-chart-expense" class="summary-display-chart expense">
+                    <div id="summary-display-chart-expense-title" >expense</div>
+                    <div id="summary-display-chart-expense-money">999</div>
+                </div>
+            </div>  
+        </section>
+        <section id="input-screen">
+            <select name="money-type" id="money-type">
+                <option value="income">+</option>
+                <option value="expense">-</option>
+            </select>
+            <input type="text" placeholder="Description" id="input-text">
+            <input type="number" placeholder="000" id="input-number">
+            <div id="btn-done">
+                <img src="img/check_circle_FILL1_wght500_GRAD0_opsz48.svg" alt="btn-done">
+            </div>
+        </section>
+        <section id="detail">
+            <div id="detail-income" class="detail-info income">
+                <div id="detail-income-title">Income</div>
+                <div id="detail-income-view">Income View</div>
+            </div>
+            <div id="detail-expense" class="detail-info expense">
+                <div id="detail-expense-title">Expense</div>
+                <div id="detail-expense-view">Expense View</div>
+            </div>
+        </section>
+    </main>
+    <script src="scripts/script.js"></script>
 </body>
-<script src="scripts/script.js"></script>
 </html>
