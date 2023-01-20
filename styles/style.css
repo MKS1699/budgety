@@ -1,0 +1,210 @@
+/* imports */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
+
+/* Element css */
+
+body {
+    color: #000;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+main {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 0.2fr 1fr;
+    grid-template-areas: "summary"
+        "input-screen"
+        "detail";
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bolder;
+}
+
+/* CSS id */
+
+#summary-display {
+    grid-area: summary;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.4fr 1fr 1fr;
+    grid-template-areas: "summary-display-title"
+        "summary-display-money"
+        "summary-display-chart";
+    background-image: url(../img/money.jpg);
+}
+
+#summary-display-title {
+    grid-area: summary-display-title;
+    align-self: center;
+    justify-self: center;
+    font-size: 2rem;
+    margin: 0;
+}
+
+#summary-display-money {
+    grid-area: summary-display-money;
+    align-self: center;
+    justify-self: center;
+    font-size: 5rem;
+    margin: 0;
+}
+
+#summary-display-chart {
+    grid-area: summary-display-chart;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "summary-display-chart-income"
+        "summary-display-chart-expense";
+    align-self: center;
+    justify-self: center;
+    margin: 0;
+    padding: 0;
+    font-size: 2rem;
+    color:#fff;
+}
+
+#summary-display-chart-income {
+    grid-area: summary-display-chart-income;
+}
+
+#summary-display-chart-income-title {
+    grid-area: chart-title;
+    text-align: left;
+}
+#summary-display-chart-income-money {
+    grid-area: money;
+    text-align: right;
+}
+
+#summary-display-chart-expense {
+    grid-area: summary-display-chart-expense;
+}
+
+#summary-display-chart-expense-title {
+    grid-area: chart-title;
+    text-align: left;
+}
+#summary-display-chart-expense-money {
+    grid-area: money;
+    text-align: right;
+}
+
+#input-screen {
+    grid-area: input-screen;
+    display: grid;
+    grid-template-columns: 0.4fr 1.6fr 0.5fr 0.4fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "money-type input-text input-number btn-done";
+    padding: 0;
+    margin: 0;
+}
+
+#money-type {
+    grid-area: money-type;
+    align-self: center;
+    justify-self: end;
+    margin-right: 0;
+    width: auto;
+    font-size: 1.5rem;
+}
+
+#input-text {
+    grid-area: input-text;
+    align-self: center;
+    font-size: 1.5rem;
+}
+
+#input-number {
+    grid-area: input-number;
+    align-self: center;
+    font-size: 1.5rem;
+}
+
+#btn-done {
+    grid-area: btn-done;
+    align-self: center;
+    justify-self: center;
+    font-size: 1.5rem;
+}
+
+
+#detail {
+    grid-area: detail;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "detail-income detail-expense";
+    color: #fff;
+}
+
+#detail-income {
+    grid-area: detail-income;
+}
+
+#detail-income-title {
+    grid-area: detail-title;
+    text-align: center;
+    border-bottom: #fff solid 3px;
+    font-size: 2.5rem;
+}
+
+#detail-income-view {
+    grid-area: detail-view;
+    font-size: 1.5rem;
+    text-indent: 5px;
+    overflow: auto;
+}
+
+#detail-expense {
+    grid-area: detail-expense;
+}
+
+#detail-expense-title {
+    grid-area: detail-title;
+    text-align: center;
+    border-bottom: #fff solid 3px;
+    font-size: 2.5rem;
+}
+
+#detail-expense-view {
+    grid-area: detail-view;
+    font-size: 1.5rem;
+    text-indent: 5px;
+    overflow: auto;
+}
+
+
+/* CSS class */
+.summary-display-chart {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "chart-title money";
+}
+
+
+.detail-info {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.2fr 1fr;
+    grid-template-areas: "detail-title"
+        "detail-view";
+    justify-self: center;
+    width: 80%;
+    height: 99%;
+}
+
+.income {
+    background-color: green;
+}
+
+.expense {
+    background-color: red;
+}
