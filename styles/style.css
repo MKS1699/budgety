@@ -209,3 +209,7 @@ main {
 .expense {
     background-color: #d90429;
 }
+
+.hide {
+    display: none;
+}
