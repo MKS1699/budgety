@@ -68,7 +68,7 @@ main {
     margin: 0;
     padding: 0;
     font-size: 2rem;
-    color:#fff;
+    color: #fff;
 }
 
 #summary-display-chart-income {
@@ -79,6 +79,7 @@ main {
     grid-area: chart-title;
     text-align: left;
 }
+
 #summary-display-chart-income-money {
     grid-area: money;
     text-align: right;
@@ -92,6 +93,7 @@ main {
     grid-area: chart-title;
     text-align: left;
 }
+
 #summary-display-chart-expense-money {
     grid-area: money;
     text-align: right;
