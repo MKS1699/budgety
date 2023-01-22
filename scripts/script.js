@@ -28,24 +28,14 @@ month.innerText = amt.month();
 
 // draw function
 function draw(what, where) {
-    if (what == 'delete') {
-        let delEl = document.createElement('div');
-        delEl.id = where.id+'-delete';
-        delEl.style.backgroundImage = 'url("../img/close_FILL1_wght500_GRAD0_opsz48.svg")';
-        delEl.style.gridArea = 'delete';
-        delEl.classList.add('hide');
-        where.appendChild(delEl);
-        return delEl;
-    }
-    else if(what == 'text') {
+    if (what == 'text') {
         let textEl = document.createElement('div');
         textEl.style['grid-area'] = 'text';
         textEl.style['textAlign'] = 'left';
         textEl.id = where.id + '-' + 'text';
         where.appendChild(textEl);
         return textEl;
-    }
-    else if(what == 'value') {
+    } else if (what == 'value') {
         let valueEl = document.createElement('div');
         valueEl.style['grid-area'] = 'value';
         valueEl.style['textAlign'] = 'center';
@@ -91,25 +81,12 @@ function display(type = null) {
             textEl.innerText = arr[arr.length - 1].description;
             let valueEl = draw('value', el);
             valueEl.innerText = arr[arr.length - 1].value;
-            
-            /* delete btn generation and events
-
-            // let delEl = draw('delete', el);
-            // valueEl.addEventListener('mouseover', ()=>{
-            //     delEl.classList.remove('hide');
-            // })
-            // valueEl.addEventListener('mouseout', ()=>{
-            //     delEl.classList.add('hide');
-            // })
-
-            */
             parentEl.appendChild(el);
-        }
-        else if(type == 'expense') {
+        } else if (type == 'expense') {
             let parentEl = document.getElementById('detail-expense-view');
             let arr = amt.expense.detail;
             el.id = type + '-' + [arr.length - 1];
-            
+
             let textEl = draw('text', el);
             textEl.innerText = arr[arr.length - 1].description;
             let valueEl = draw('value', el);
@@ -157,7 +134,7 @@ function btnDone() {
     if (money.value != 0 && description.length != 0) {
         calculate(type.value, description.value, parseFloat(money.value));
     } else {
-        console.log('moneyval is 0 and description in not given')
+        console.log('moneyval is 0 and description in not given');
     }
     money.value = '';
     description.value = '';
