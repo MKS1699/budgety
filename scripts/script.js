@@ -26,6 +26,35 @@ const amt = {
 let month = document.getElementById('month');
 month.innerText = amt.month();
 
+// draw function
+function draw(what, where) {
+    if (what == 'delete') {
+        let delEl = document.createElement('div');
+        delEl.id = where.id+'-delete';
+        delEl.style.backgroundImage = 'url("../img/close_FILL1_wght500_GRAD0_opsz48.svg")';
+        delEl.style.gridArea = 'delete';
+        delEl.classList.add('hide');
+        where.appendChild(delEl);
+        return delEl;
+    }
+    else if(what == 'text') {
+        let textEl = document.createElement('div');
+        textEl.style['grid-area'] = 'text';
+        textEl.style['textAlign'] = 'left';
+        textEl.id = where.id + '-' + 'text';
+        where.appendChild(textEl);
+        return textEl;
+    }
+    else if(what == 'value') {
+        let valueEl = document.createElement('div');
+        valueEl.style['grid-area'] = 'value';
+        valueEl.style['textAlign'] = 'center';
+        valueEl.id = where.id + '-' + 'value';
+        where.appendChild(valueEl);
+        return valueEl;
+    }
+}
+
 // function for displaying the data
 function display(type = null) {
     // total amount display
@@ -46,44 +75,47 @@ function display(type = null) {
     // displaying income/expense chart
     if (type != null) {
         let el = document.createElement('div');
-        let textEl = document.createElement('div');
-        let valueEl = document.createElement('div');
-
         // css styles
         // el style
         el.style['display'] = 'grid';
         el.style['grid-template-columns'] = '1fr 1fr';
         el.style['grid-template-rows'] = '1fr';
         el.style['grid-template-areas'] = '"text value"';
-        // textEl style
-        textEl.style['grid-area'] = 'text';
-        textEl.style['textAlign'] = 'left';
-        // valueEl style
-        valueEl.style['grid-area'] = 'value';
-        valueEl.style['textAlign'] = 'center';
 
         if (type == 'income') {
-            let parentEl = document.getElementById('detail-income-view')
+            let parentEl = document.getElementById('detail-income-view');
             let arr = amt.income.detail;
             el.id = type + '-' + [arr.length - 1];
-            textEl.id = el.id + '-' + 'text';
+
+            let textEl = draw('text', el);
             textEl.innerText = arr[arr.length - 1].description;
-            valueEl.id = el.id + '-' + 'value';
+            let valueEl = draw('value', el);
             valueEl.innerText = arr[arr.length - 1].value;
-            el.appendChild(textEl);
-            el.appendChild(valueEl);
+            
+            /* delete btn generation and events
+
+            // let delEl = draw('delete', el);
+            // valueEl.addEventListener('mouseover', ()=>{
+            //     delEl.classList.remove('hide');
+            // })
+            // valueEl.addEventListener('mouseout', ()=>{
+            //     delEl.classList.add('hide');
+            // })
+
+            */
             parentEl.appendChild(el);
         }
         else if(type == 'expense') {
-            let parentEl = document.getElementById('detail-expense-view')
+            let parentEl = document.getElementById('detail-expense-view');
             let arr = amt.expense.detail;
             el.id = type + '-' + [arr.length - 1];
-            textEl.id = el.id + '-' + 'text';
+            
+            let textEl = draw('text', el);
             textEl.innerText = arr[arr.length - 1].description;
-            valueEl.id = el.id + '-' + 'value';
+            let valueEl = draw('value', el);
             valueEl.innerText = arr[arr.length - 1].value;
-            el.appendChild(textEl);
-            el.appendChild(valueEl);
+            let delEl = draw('delete', el);
+
             parentEl.appendChild(el);
         }
     }
