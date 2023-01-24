@@ -1,7 +1,3 @@
-// to delete code below before pushing
-function debug(val) {
-    console.log(val);
-}
 // to delete code above before pushing
 
 // app data
@@ -91,8 +87,6 @@ function display(type = null) {
             textEl.innerText = arr[arr.length - 1].description;
             let valueEl = draw('value', el);
             valueEl.innerText = arr[arr.length - 1].value;
-            let delEl = draw('delete', el);
-
             parentEl.appendChild(el);
         }
     }
